@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<style>
+    form input,
+    form button {
+        font-size: 22px;
+    }
+</style>
+
+<body>
+    <h1>
+        <%= name %>
+    </h1>
+    <form action="/url" method="POST">
+        <!-- this name is like body for backend so in backend we will call :: body.url -->
+        <input name="url" type="text" placeholder="Enter url">
+        <button type="submit">Submit</button>
+    </form>
+
+    <center>
+        <table>
+            <thead>
+                <th>Redirect</th>
+                <th>Clicks</th>
+                <th>ShortId</th>
+            </thead>
+            <% urls.forEach(function(e) { %>
+                <tbody>
+                    <tr></tr>
+                    <td>
+                        <%=e.redirectURL %>
+                    </td>
+                    <td>
+                        <%= e.visitHistory.clicks %>
+                    </td>
+                    <td>
+                        <%=e.shortId %>
+                    </td>
+                </tbody>
+                <% }); %>
+        </table>
+    </center>
+</body>
+
+</html>

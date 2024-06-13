@@ -12,7 +12,15 @@ const handleUrlShortening = async (req ,response, next) =>{
         redirectURL : url,
         vistHistory : [],
     })
-    return response.json({id : shortId});
+
+
+    // for ejs
+    const urls = await urlSchema.find({}); 
+    // return response.json({id : shortId});
+    response.render("home" , {
+        urls,
+        name : "Ankit Singh Chauhan"
+    });
 } 
 
 module.exports = handleUrlShortening;
